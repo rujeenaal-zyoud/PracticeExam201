@@ -1,6 +1,6 @@
 'use strict'
 
- let price=[];
+ 
 let cars = [];
 // function for create random price 
 function randomPrice(min, max) {
@@ -18,6 +18,15 @@ function Car(carModel, modelYear, Manefacturer) {
     updateStorage();
 }
 
+// create the total Price function 
+function totalPrice(){
+let total =0;
+for(let i=0; i<cars.length;i++){
+    total=total+cars[i].price;
+}
+return total;
+}
+totalPrice();
 
 // create table in globel
 
@@ -74,6 +83,10 @@ dataCell3.textContent=this.price;
 let dataCell4=document.createElement('td');
 carRows.appendChild(dataCell4);
 dataCell4.textContent=this.Manefacturer;
+
+
+// totalP.textContent=' ';
+
 }
 
 //create the form with event lisstner
@@ -99,24 +112,18 @@ newCar.render();
 
  }
 
- let sum= document.getElementById('sum');
- let total =document.createElement('p');
- sum.appendChild(total);
- 
-function sumTa(){
-    let sumT=0
-    sumT = sumT + price;
-    total.textContent=sumT;
 
-}
-sumTa()
+ 
+
 
 function updateStorage(){
     let arrayString = JSON.stringify(cars);
     localStorage.setItem('Cars',arrayString);
 }
 
-
+let sum= document.getElementById('sum');
+let totalP =document.createElement('th');
+sum.appendChild(totalP);
 function gettingData(){
     let data=localStorage.getItem('Cars');
     let parseDate = JSON.parse(data);
@@ -124,8 +131,12 @@ function gettingData(){
         for(let i=0;i<parseDate.length;i++){
             new Car(parseDate[i].carModel,parseDate[i].modelYear,parseDate[i].price,parseDate[i].Manefacturer);
             cars[i].render();
+            
+
+totalP.textContent=' ';
         }
-    }
+    }totalP.textContent= `Total = ${totalPrice()}`;
+
 
 }
 gettingData();
