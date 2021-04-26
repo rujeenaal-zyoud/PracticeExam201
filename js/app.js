@@ -26,7 +26,6 @@ for(let i=0; i<cars.length;i++){
 }
 return total;
 }
-totalPrice();
 
 // create table in globel
 
@@ -107,6 +106,7 @@ console.log(carManufactrerForm);
 const newCar = new Car(carModelForm,carModelYearForm,carManufactrerForm);
 newCar.render();
 
+totalPrice();
 
 
 
@@ -121,9 +121,12 @@ function updateStorage(){
     localStorage.setItem('Cars',arrayString);
 }
 
+
 let sum= document.getElementById('sum');
 let totalP =document.createElement('th');
 sum.appendChild(totalP);
+
+
 function gettingData(){
     let data=localStorage.getItem('Cars');
     let parseDate = JSON.parse(data);
@@ -131,9 +134,7 @@ function gettingData(){
         for(let i=0;i<parseDate.length;i++){
             new Car(parseDate[i].carModel,parseDate[i].modelYear,parseDate[i].price,parseDate[i].Manefacturer);
             cars[i].render();
-            
-
-totalP.textContent=' ';
+        totalP.textContent=' ';
         }
     }totalP.textContent= `Total = ${totalPrice()}`;
 
