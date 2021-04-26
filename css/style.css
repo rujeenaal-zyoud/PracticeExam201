@@ -41,14 +41,14 @@ padding-left: 400px;
 
 
 #form{
-position: absolute;
+ position: absolute; 
     padding-left: 0px;
     padding-top: 10px;
     height: 200px;
     width: 300px;
     background-color:rgba(96, 96, 96,0.6);
 
-    margin-top: 100px;
+    margin-top: 90px;
 margin-left: 100px;
 } 
 

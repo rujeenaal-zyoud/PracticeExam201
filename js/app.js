@@ -1,5 +1,4 @@
 'use strict'
-
  
 let cars = [];
 // function for create random price 
@@ -18,14 +17,16 @@ function Car(carModel, modelYear, Manefacturer) {
     updateStorage();
 }
 
+
 // create the total Price function 
 function totalPrice(){
-let total =0;
+    let total =0;
 for(let i=0; i<cars.length;i++){
     total=total+cars[i].price;
 }
 return total;
 }
+totalPrice();
 
 // create table in globel
 
@@ -108,7 +109,9 @@ newCar.render();
 
 totalPrice();
 
+totalP.textContent=' ';
 
+totalP.textContent= `Total = ${totalPrice()}`;
 
  }
 
